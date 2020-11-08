@@ -1,0 +1,96 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using DB_Connect;
+using Logics_Layer.Models;
+
+namespace Logics_Layer.Admin
+{
+    public class OurClients_Logic : PDBC
+    {
+        public List<PicModel> GetClients()
+        {
+            List<PicModel> Models = new List<PicModel>();
+            base.Connect();
+            DataTable dt = base.Select("SELECT A.[PicId],[PicAddress],[PicThumbnailAddress] FROM [tbl_PicUploader] as A inner join [tbl_PicUse] as B on A.PicId=B.PicId where B.PicUseAs LIKE N'OurClients'");
+            base.DC();
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                var model = new PicModel()
+                {
+                    PicId = Convert.ToInt32(dt.Rows[i]["PicId"]),
+                    Path = dt.Rows[i]["PicAddress"].ToString(),
+                    ThumpnailPic = dt.Rows[i]["PicThumbnailAddress"].ToString()
+                };
+                Models.Add(model);
+            }
+
+            return Models;
+        }
+
+        public string DeletePic_Clients(int PicId)
+        {
+            string s = "";
+            List<ExcParameters> parss = new List<ExcParameters>();
+            ExcParameters par = new ExcParameters
+            {
+                _KEY = "@P_Id",
+                _VALUE = PicId
+            };
+            parss.Add(par);
+
+            base.Connect();
+            DataTable dt = base.Select("SELECT [PicId] ,[PicUseAs] FROM [tbl_PicUse] where PicId=@P_Id AND PicUseAs LIKE N'OurClients'", parss);
+            if (dt.Rows.Count != 0)
+            {
+                s += base.Script("DELETE FROM [tbl_PicUse] WHERE PicId=@P_Id AND PicUseAs LIKE N'OurClients'", parss);
+            }
+            base.DC();
+            if (s == "1")
+            {
+                return "Success";
+            }
+            else
+            {
+                return "fail";
+            }
+
+        }
+
+        public string AddPic_Clients(List<int> PicId)
+        {
+            string s = "";
+            List<ExcParameters> parss;
+            ExcParameters par;
+
+            base.Connect();
+            DataTable dt;
+
+            for (int i = 0; i < PicId.Count; i++)
+            {
+                parss = new List<ExcParameters>();
+                par = new ExcParameters
+                {
+                    _KEY = "@P_Id",
+                    _VALUE = PicId[i]
+                };
+                parss.Add(par);
+                dt = base.Select("SELECT [PicId] ,[PicUseAs] FROM [tbl_PicUse] where PicId=@P_Id AND PicUseAs LIKE N'OurClients'", parss);
+
+                if (dt.Rows.Count == 0)
+                {
+                    s += base.Script("INSERT INTO [tbl_PicUse] ([PicId],[PicUseAs]) VALUES(@P_Id,N'OurClients')", parss);
+                }
+            }
+
+
+            base.DC();
+
+            return "Success";
+        }
+    }
+}

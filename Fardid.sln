@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fardid", "Fardid\Fardid.csproj", "{194C847A-2B41-490A-AD0A-0CA206C82D1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB_Connect", "DB_Connect\DB_Connect.csproj", "{E1FD038F-9922-4A78-90CC-40B9D5DD8AD5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logics_Layer", "Logics_Layer\Logics_Layer.csproj", "{E41EBBA8-2302-4209-A48C-26C0612E53EF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{194C847A-2B41-490A-AD0A-0CA206C82D1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{194C847A-2B41-490A-AD0A-0CA206C82D1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{194C847A-2B41-490A-AD0A-0CA206C82D1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{194C847A-2B41-490A-AD0A-0CA206C82D1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1FD038F-9922-4A78-90CC-40B9D5DD8AD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1FD038F-9922-4A78-90CC-40B9D5DD8AD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1FD038F-9922-4A78-90CC-40B9D5DD8AD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1FD038F-9922-4A78-90CC-40B9D5DD8AD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E41EBBA8-2302-4209-A48C-26C0612E53EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E41EBBA8-2302-4209-A48C-26C0612E53EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E41EBBA8-2302-4209-A48C-26C0612E53EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E41EBBA8-2302-4209-A48C-26C0612E53EF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9E32D0DD-A9D4-4BCC-B49D-FE14B66E6C41}
+	EndGlobalSection
+EndGlobal

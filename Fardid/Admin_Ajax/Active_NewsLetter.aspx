@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Active_NewsLetter.aspx.cs" Inherits="Fardid.Admin_Ajax.Active_NewsLetter" %>
